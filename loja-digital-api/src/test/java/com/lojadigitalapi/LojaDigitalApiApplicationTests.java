@@ -1,10 +1,10 @@
-package com.mercadoapi;
+package com.lojadigitalapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class MercadoApiApplicationTests {
+class LojaDigitalApiApplicationTests {
 
 	@Test
 	void contextLoads() {
