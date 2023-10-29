@@ -1,13 +1,13 @@
 package com.lojadigitalapi.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
-@Data
+import java.math.BigDecimal;
+
+
 @Entity
+@Data
 public class Produto {
 
     @Id
@@ -15,7 +15,13 @@ public class Produto {
     private Long id;
 
     private String nome;
+
     private String descricao;
-    private Double preco;
-    private int quantidadeEmEstoque;
+
+    private BigDecimal preco;
+
+    @Column(nullable = false)
+    private Integer quantidadeEmEstoque;
+    @ManyToOne
+    private Carrinho carrinho;
 }

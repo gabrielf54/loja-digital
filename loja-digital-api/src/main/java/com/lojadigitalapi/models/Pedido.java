@@ -13,12 +13,14 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @OneToOne
+    private Carrinho carrinho;
+
     @ManyToMany
     private List<Produto> produtos;
 
-    @ElementCollection
-    private List<Produto> quantidadeProdutos;
-
     private String statusDoPedido;
 
+    @ManyToOne
+    private Cliente cliente;
 }
