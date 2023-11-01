@@ -16,7 +16,7 @@ public class Carrinho {
     @OneToOne
     private Cliente cliente;
 
-    @ManyToMany
-    private List<Produto> produtos;
+    @OneToMany(mappedBy = "carrinho")
+    private List<ItemCarrinho> itensCarrinho;
 
 }

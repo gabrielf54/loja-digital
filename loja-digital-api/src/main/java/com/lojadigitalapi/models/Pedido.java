@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @Data
 public class Pedido {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,11 +15,9 @@ public class Pedido {
     @OneToOne
     private Carrinho carrinho;
 
-    @ManyToMany
-    private List<Produto> produtos;
-
     private String statusDoPedido;
 
     @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 }

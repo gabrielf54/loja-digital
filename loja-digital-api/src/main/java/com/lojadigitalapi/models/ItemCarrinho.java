@@ -3,24 +3,20 @@ package com.lojadigitalapi.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
-@Data
 @Entity
-public class Cliente {
-
+@Data
+public class ItemCarrinho {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nome;
-    private String email;
-    private String senha;
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
+    private Produto produto;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Pedido> pedidos;
-
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "carrinho_id")
     private Carrinho carrinho;
+
+    private int quantidade;
 }

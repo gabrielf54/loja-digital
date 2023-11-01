@@ -22,6 +22,5 @@ public class Produto {
 
     @Column(nullable = false)
     private Integer quantidadeEmEstoque;
-    @ManyToOne
-    private Carrinho carrinho;
+
 }
