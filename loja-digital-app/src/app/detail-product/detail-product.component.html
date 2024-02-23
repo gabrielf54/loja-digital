@@ -1,0 +1,11 @@
+<!-- No arquivo detail-product.component.html -->
+<h2 mat-dialog-title>{{ data.product?.nome }}</h2>
+<mat-dialog-content class="mat-typography">
+  <img *ngIf="data.product" src="https://upload.wikimedia.org/wikipedia/commons/4/4a/100x100_logo.png" [alt]="data.product.nome" style="max-width: 100%;">
+  <p *ngIf="data.product?.descricao">{{ data.product.descricao }}</p>
+  <p *ngIf="data.product?.preco"><strong>Preço:</strong> {{ data.product.preco | currency:'BRL' }}</p>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="buyProduct()">Adicionar ao carrinho</button>
+  <button mat-button mat-dialog-close>Fechar</button>
+</mat-dialog-actions>
