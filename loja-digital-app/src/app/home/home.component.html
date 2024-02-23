@@ -1,0 +1,40 @@
+<div class="toolbar">
+  <div class="logo">
+    <img src="../../assets/img/logo-gabstore.png" alt="Logotipo" />
+  </div>
+  <div class="buttons">
+    <button class="button-effect">Perfil</button>
+    <button class="button-effect">Sobre nós</button>
+    <button class="button-effect">Contato</button>
+  </div>
+</div>
+
+<div class="container">
+  <h2>Produtos Disponíveis</h2>
+  <div class="product-grid">
+    <div
+      class="product"
+      *ngFor="let product of productsToShow; trackBy: trackByProducts"
+      [ngClass]="{ 'product-fade': true }"
+      (click)="openProductModal(product)"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/4/4a/100x100_logo.png"
+        class="product-image"
+      />
+      <h3>{{ product.nome }}</h3>
+      <p class="preco">R$ {{ product.preco.toFixed(2) }}</p>
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <button class="btn btn-primary ms-1" (click)="previousPage()">
+      Anterior
+    </button>
+    <button class="btn btn-primary ms-1" (click)="nextPage()">Próximo</button>
+  </div>
+
+  <div class="fab-container">
+    <div class="button">
+    <img  class="icon-button" src="../../assets/img/shopping-cart.png" alt="Carrinho de compras">
+    </div>
+</div>

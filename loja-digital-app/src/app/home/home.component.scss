@@ -1,0 +1,138 @@
+@import "../../styles.scss";
+
+.toolbar {
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 0;
+}
+
+.logo img {
+  height: 50px; // Ajuste conforme necessário
+}
+
+.buttons .button-effect {
+  background: var(--second-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.3s;
+  &:hover {
+    background-color: lighten(#333399, 10%);
+    transform: translateY(-2px);
+  }
+}
+
+.container {
+  margin-top: 90px; // Ajuste de acordo com a altura da sua navbar
+  padding: 0 20px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  position: relative;
+  height: 300px;
+}
+
+.product-grid .product-fade {
+  animation: fadeEffect 0.5s;
+}
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.product {
+  flex: 0 0 auto; /* Não permite que o produto cresça ou encolha, mas mantém sua base automática */
+  width: 200px; /* ou a largura que você preferir para seus produtos */
+  height: auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  &:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.product :hover {
+  cursor: pointer;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.icon-button {
+  padding-top: 13px;
+  padding-left: 10px;
+  max-width: 48px;
+}
+
+.button {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  border-radius: 100%;
+  box-shadow: 10px 10px 5px #aaaaaa;
+}
+
+.product-image {
+  max-width: 100%;
+  height: 160px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  color: var(--second-color);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.preco {
+  color: var(--second-color);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+// Estilos para a grade de produtos dentro de cada item do carrossel
+.product-grid {
+  .product {
+    flex: 0 0 calc(16.66% - 20px); // Cada produto deve ter 1/6 da largura do carrossel menos o gap
+    // Os restantes estilos do .product permanecem iguais
+  }
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+:root {
+  --primary-color: #bdd9f3; // Azul claro
+  --second-color: #333399; // Azul escuro
+}
