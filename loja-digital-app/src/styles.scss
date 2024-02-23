@@ -1,1 +1,83 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: rgb(194, 224, 244);
+  --second-color: rgb(51, 51, 153);
+}
+
+* {
+    font-family: 'Oswald', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.btn-primary {
+  background-color: rgb(51, 51, 153);
+}
+
+.button-effect {
+  width: 100px;
+  height: 35px;
+  margin: 5px 20px;
+  background: var(--second-color);
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button-effect:hover {
+  background-color: lighten(rgb(51, 51, 153), 10%);
+  color: var(--primary-color);
+}
+
+.button-effect:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.button-effect:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+// Em styles.scss na raiz do seu projeto Angular
+
+.cdk-overlay-dark-backdrop {
+  background-color: rgba(0, 0, 0, 0.6); // Isso aplica um fundo preto semi-transparente
+}
+
+.cdk-overlay-pane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Se necessário, ajuste o z-index
+.cdk-overlay-backdrop {
+  z-index: 1000;
+}
+
+.cdk-overlay-pane {
+  z-index: 1001;
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
